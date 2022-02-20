@@ -7,7 +7,8 @@ module.exports = {
       primary: colors.slate,
       secondary: colors.neutral,
       white: colors.white,
-      black: colors.black
+      black: colors.black,
+      red: colors.red,
     }
   },
   plugins: [],

@@ -1,109 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dice Master</title>
+
+    <!-- Insertion du CSS -->
     <link rel="stylesheet" href="./src/assets/css/reset.css" />
     <link rel="stylesheet" href="./src/assets/css/final.css" />
-</head>
-<body class="container mx-auto px-4 h-screen font-medium">
+  </head>
+  <body class="container mx-auto px-4 h-screen font-medium">
     <header class="h-1/6 flex flex-row justify-center items-center">
-        <button class="hover:text-primary-600 hover:font-normal cursor-pointer flex flex-row justify-center items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg> 
-            <h2 class="text-base ml-2">NEW GAME</h2>
-        </button>
+      <button
+        type="button"
+        class="hover:text-primary-600 hover:font-normal cursor-pointer flex flex-row justify-center items-center"
+        id="StartNewGame"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 stroke-primary-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <h2 class="text-base ml-2">NEW GAME</h2>
+      </button>
     </header>
     <main class="flex w-100 flex-col h-4/6 text-2xl">
-        <div class='h-1/5 flex w-100 flex-row justify-between'>
-            <div class="flex w-5/12 flex-row justify-center items-center" id="#player1Name">PLAYER 1
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-            </div>
-            <div class="flex w-5/12 flex-row justify-center items-center" id="#player2Name">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                </svg>
-                PLAYER 2
-            </div>
+      <div class="h-1/5 flex w-100 flex-row justify-between">
+        <div class="flex w-5/12 flex-row justify-center items-center" >
+          <span id="player1Name">PLAYER 1</span>
+          <span class="YourTurn ml-3 hidden" id="player1Turn"></span>
         </div>
-        <div class="h-2/5 flex flex-row text-3xl justify-center items-center">
-            <div class="flex w-5/12 justify-center align-middle text-secondary-200 text-5xl">43</div>
-            <div class="flex w-2/12 align-middle items-center justify-center perspective">
-            <!--- Partie représentant le dé -->
-            <div class="dice">
-                <div class="face face-1">
-                    <span class="dot Middle"></span>
-                </div>
-                <div class="face face-2">
-                    <span class="dot Top"></span>
-                    <span class="dot Bottom"></span>
-                </div>
-                <div class="face face-3">
-                    <span class="dot Top"></span>
-                    <span class="dot Middle"></span>
-                    <span class="dot Bottom"></span>
-                </div>
-                <div class="face face-4">
-                    <span class="dot TopLeft"></span>
-                    <span class="dot TopRight"></span>
-                    <span class="dot BottomLeft"></span>
-                    <span class="dot BottomRight"></span>
-                </div>
-                <div class="face face-5">
-                    <span class="dot TopLeft"></span>
-                    <span class="dot TopRight"></span>
-                    <span class="dot Middle"></span>
-                    <span class="dot BottomLeft"></span>
-                    <span class="dot BottomRight"></span>
-                </div>
-                <div class="face face-6">
-                    <span class="dot TopLeft"></span>
-                    <span class="dot lefty"></span>
-                    <span class="dot BottomLeft"></span>
-                    <span class="dot TopRight"></span>
-                    <span class="dot Right"></span>
-                    <span class="dot BottomRight"></span>
-                </div>
-              </div>
-            <!--- FIN de la Partie représentant le dé -->
-            </div>
-            <div class="flex w-5/12 justify-center align-middle text-primary-400 text-5xl">72</div>
+        <div class="flex w-5/12 flex-row justify-center items-center" id="#player2Name">
+          <span class="YourTurn p2 mr-3 hidden" id="player2Turn"></span>
+          <span id="player2Name">PLAYER 2</span>
         </div>
-        <div class="h-2/5 flex flex-row text-base justify-center items-center">
-            <div class="flex w-5/12 align-middle items-center justify-center">
-                <div class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-l text-white font-bold justify-around">
-                    <h4 class="text-xs font-light text-black">ACTUEL</h4> 
-                      11
-                </div>
+      </div>
+      <div class="h-2/5 flex flex-row text-3xl justify-center items-center">
+        <div class="flex w-5/12 justify-center align-middle text-secondary-200 text-5xl" id="Player1Global">43</div>
+        <div class="flex w-2/12 align-middle items-center justify-center perspective">
+          <!--- Partie représentant le dé -->
+          <div class="dice">
+            <div class="face face-1">
+              <span class="dot Middle"></span>
             </div>
-            <div class="flex w-2/12 align-middle items-center justify-center text-xs flex-col">
-                <button class="flex w-100 mb-3 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="RollDice">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg> 
-                    ROLL 
-                </button>
-                <button class="flex w-100 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="spin">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg> HOLD
-                </button>
- 
+            <div class="face face-2">
+              <span class="dot Top"></span>
+              <span class="dot Bottom"></span>
             </div>
-            <div class="flex w-5/12 align-middle items-center justify-center">
-                <div class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-lg text-white font-bold justify-around">
-                    <h4 class="text-xs font-light text-black">ACTUEL</h4> 
-                      0
-                </div>
+            <div class="face face-3">
+              <span class="dot Top"></span>
+              <span class="dot Middle"></span>
+              <span class="dot Bottom"></span>
             </div>
+            <div class="face face-4">
+              <span class="dot TopLeft"></span>
+              <span class="dot TopRight"></span>
+              <span class="dot BottomLeft"></span>
+              <span class="dot BottomRight"></span>
+            </div>
+            <div class="face face-5">
+              <span class="dot TopLeft"></span>
+              <span class="dot TopRight"></span>
+              <span class="dot Middle"></span>
+              <span class="dot BottomLeft"></span>
+              <span class="dot BottomRight"></span>
+            </div>
+            <div class="face face-6">
+              <span class="dot TopLeft"></span>
+              <span class="dot lefty"></span>
+              <span class="dot BottomLeft"></span>
+              <span class="dot TopRight"></span>
+              <span class="dot Right"></span>
+              <span class="dot BottomRight"></span>
+            </div>
+          </div>
+          <!--- FIN de la Partie représentant le dé -->
         </div>
+        <div class="flex w-5/12 justify-center align-middle text-primary-400 text-5xl" id="Player2Global">72</div>
+      </div>
+      <div class="h-2/5 flex flex-row text-base justify-center items-center">
+        <div class="flex w-5/12 align-middle items-center justify-center">
+          <div
+            class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-l text-white font-bold justify-around"
+          >
+            <h4 class="text-xs font-light text-black">ACTUEL</h4>
+            <span id="Player1Round">11</span>
+          </div>
+        </div>
+        <div class="flex w-2/12 align-middle items-center justify-center text-xs flex-col">
+          <button class="flex w-100 mb-3 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="RollDice">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 stroke-primary-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
+            </svg>
+            ROLL
+          </button>
+          <button class="flex w-100 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="holdScore">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 stroke-primary-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+            HOLD
+          </button>
+        </div>
+        <div class="flex w-5/12 align-middle items-center justify-center">
+          <div
+            class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-lg text-white font-bold justify-around"
+          >
+            <h4 class="text-xs font-light text-black">ACTUEL</h4>
+            <span id="Player2Round">0</span>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="h-1/6 flex text-xs justify-center items-end">Made with love by Ludovic JORGE DO MARCO</footer>
+    <!-- Gestion de la modal -->
+
+    <div
+      class="hidden fixed z-10 inset-0 overflow-y-auto"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+      id="popup-modal"
+    >
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0
+      h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100
+      ">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div
+          class="inline-block align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        >
+          <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 bg-primary-300">
+            <div class="sm:flex sm:items-start">
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Bienvenue sur Dice-Master</h3>
+                <div class="mt-2 flex flex-col">
+                  <p class="text-xs"> 2 joueurs s'affrontent, le premier à 100 points a gagné la partie. 
+                      Le joueur a la main tant qu'il n'appuie pas sur le bouton HOLD. 
+                      Mais attention, tomber sur <span class='text-red-600'>le chiffre 1</span> et tout vos points du round sont perdus.
+                  </p>
+                  <label for="playerOneName">Joueur 1</label>
+                  <input class="shadow appearance-none border rounded w-full px-3 text-primary-700 leading-tight focus:outline-none focus:shadow-outline" type='text' name="playerOneName" id="playerOneName" />
+                  <label for="playerTwoName">Joueur 2</label>
+                  <input class="shadow appearance-none border rounded w-full px-3 text-primary-700 leading-tight focus:outline-none focus:shadow-outline" Type='text' name="playerTwoName" id="playerTwoName" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse bg-primary-300">
+            <input 
+            type="submit"
+              type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium bg-primary-400 text-black hover:bg-primary-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm hover:cursor-pointer"
+            value='Lancer la partie'
+            id="startGame"
+              >
+            <button
+              type="button"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-base font-medium text-primary-700 hover:bg-primary-700 hover:text-white  focus:outline-none focus:ring-2 focus:ring-offset-2  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              id="closeModal"
+              >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------->
+    <!-- Insertion des scripts Javascript -->
     <script src="./src/assets/js/app.js" type="text/javascript"></script>
-</body>
+  </body>
 </html>

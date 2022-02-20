@@ -95,6 +95,17 @@ body {
     margin:auto;
   }
 
+.YourTurn{
+    height: 15px;
+    width: 15px;
+    background-color:theme('colors.secondary.200');
+    border-radius: 50%;
+}
+
+.p2 {
+    background-color:theme('colors.secondary.900'); 
+}
+
 
 .TopLeft { grid-area: 1 / 1 / 2 / 2; }
 .lefty { grid-area: 2 / 1 / 3 / 2; }
