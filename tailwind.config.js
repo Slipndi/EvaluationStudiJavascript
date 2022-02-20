@@ -4,8 +4,8 @@ module.exports = {
   content: ["**.html"],
   theme: {
     colors: {
-      primary: colors.red,
-      secondary: colors.orange,
+      primary: colors.slate,
+      secondary: colors.neutral,
       white: colors.white,
       black: colors.black
     }

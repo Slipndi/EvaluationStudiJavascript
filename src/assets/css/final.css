@@ -611,11 +611,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-primary-600{
   --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
 
 .stroke-primary-600{
-  stroke: #dc2626;
+  stroke: #475569;
 }
 
 .px-4{
@@ -667,12 +667,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-secondary-900{
   --tw-text-opacity: 1;
-  color: rgb(124 45 18 / var(--tw-text-opacity));
+  color: rgb(23 23 23 / var(--tw-text-opacity));
 }
 
 .text-primary-600{
   --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .text-white{
@@ -687,7 +687,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 body {
   font-family: 'Lato', sans-serif;
-  background: linear-gradient(90deg, #fee2e2 50%, #ffedd5 50%);
+  background: linear-gradient(90deg, #94a3b8 50%, #e5e5e5 50%);
 }
 
 .hover\:cursor-pointer:hover{
@@ -700,5 +700,5 @@ body {
 
 .hover\:text-primary-600:hover{
   --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }

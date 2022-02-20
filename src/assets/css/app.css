@@ -7,5 +7,5 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(90deg, theme('colors.primary.100') 50%, theme('colors.secondary.100') 50%);
+    background: linear-gradient(90deg, theme('colors.primary.400') 50%, theme('colors.secondary.200') 50%);
 }
