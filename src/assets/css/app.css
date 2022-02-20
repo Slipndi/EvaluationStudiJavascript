@@ -1,0 +1,11 @@
+/* ./src/assets/css/app.css */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(90deg, theme('colors.primary.100') 50%, theme('colors.secondary.100') 50%);
+}
