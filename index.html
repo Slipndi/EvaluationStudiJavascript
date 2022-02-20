@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +8,67 @@
     <link rel="stylesheet" href="./src/assets/css/reset.css" />
     <link rel="stylesheet" href="./src/assets/css/final.css" />
 </head>
-<body class="container mx-auto px-4 h-screen">
+<body class="container mx-auto px-4 h-screen font-light">
     <header class="h-1/6 flex flex-row justify-center items-center">
-        <div class="hover:text-primary-700 cursor-pointer flex flex-row justify-center items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="hover:text-primary-600 hover:font-normal cursor-pointer flex flex-row justify-center items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg> 
-            <h2 class="font-bold text-xl ml-2">NEW GAME</h2>
+            <h2 class="text-base ml-2">NEW GAME</h2>
         </div>
     </header>
-    <main class="h-4/6">
-        
+    <main class="flex w-100 flex-col h-4/6 text-2xl">
+        <div class='h-1/5 flex w-100 flex-row justify-between'>
+            <div class="flex w-5/12 flex-row justify-center items-center">PLAYER 1
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div class="flex w-5/12 flex-row justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+                PLAYER 2
+            </div>
+        </div>
+        <div class="h-2/5 flex flex-row text-3xl justify-center items-center">
+            <div class="flex w-5/12 justify-center align-middle text-secondary-900 text-5xl">43</div>
+            <div class="flex w-2/12 align-middle items-center justify-center">
+            <!--- Partie représentant le dé -->
+            <!--- FIN de la Partie représentant le dé -->
+            </div>
+            <div class="flex w-5/12 justify-center align-middle text-primary-600 text-5xl">72</div>
+        </div>
+        <div class="h-2/5 flex flex-row text-base justify-center items-center">
+            <div class="flex w-5/12 align-middle items-center justify-center">
+                <div class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-l text-white font-bold justify-around">
+                    <h4 class="text-xs font-light text-black">ACTUEL</h4> 
+                      11
+                </div>
+            </div>
+            <div class="flex w-2/12 align-middle items-center justify-center text-xs flex-col">
+                <div class="flex w-100 mb-3 hover:cursor-pointer hover:text-primary-600 hover:font-normal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg> 
+                    ROLL 
+                </div>
+                <div class="flex w-100 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="spin">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg> HOLD
+               </div>
+ 
+            </div>
+            <div class="flex w-5/12 align-middle items-center justify-center">
+                <div class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-lg text-white font-bold justify-around">
+                    <h4 class="text-xs font-light text-black">ACTUEL</h4> 
+                      0
+                </div>
+            </div>
+        </div>
     </main>
-    <footer class="h-1/6 flex justify-center items-center text-sm">Made with love by Ludovic JORGE DO MARCO</footer>
+    <footer class="h-1/6 flex text-xs justify-center items-end">Made with love by Ludovic JORGE DO MARCO</footer>
+<script src="./src/assets/js/logiquedude.js"></script>
 </body>
 </html>

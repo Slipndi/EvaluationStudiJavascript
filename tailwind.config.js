@@ -5,7 +5,9 @@ module.exports = {
   theme: {
     colors: {
       primary: colors.red,
-      secondary: colors.orange
+      secondary: colors.orange,
+      white: colors.white,
+      black: colors.black
     }
   },
   plugins: [],
