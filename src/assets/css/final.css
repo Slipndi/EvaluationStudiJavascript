@@ -657,22 +657,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
-.font-light{
-  font-weight: 300;
+.font-medium{
+  font-weight: 500;
 }
 
 .font-bold{
   font-weight: 700;
 }
 
-.text-secondary-900{
-  --tw-text-opacity: 1;
-  color: rgb(23 23 23 / var(--tw-text-opacity));
+.font-light{
+  font-weight: 300;
 }
 
-.text-primary-600{
+.text-secondary-200{
   --tw-text-opacity: 1;
-  color: rgb(71 85 105 / var(--tw-text-opacity));
+  color: rgb(229 229 229 / var(--tw-text-opacity));
+}
+
+.text-primary-400{
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
 .text-white{
@@ -689,6 +693,80 @@ body {
   font-family: 'Lato', sans-serif;
   background: linear-gradient(90deg, #94a3b8 50%, #e5e5e5 50%);
 }
+
+/***** dice *****/
+
+.dice {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-35px);
+  transition: transform 0.5s;
+}
+
+.dice.display-1 {
+  transform: translateZ(-35px) rotateY(0deg);
+}
+
+.dice.display-2 {
+  transform: translateZ(-35px) rotateY(-180deg);
+}
+
+.dice.display-3 {
+  transform: translateZ(-35px) rotateY(-90deg);
+}
+
+.dice.display-4 {
+  transform: translateZ(-35px) rotateY(90deg);
+}
+
+.dice.display-5 {
+  transform: translateZ(-35px) rotateX(-90deg);
+}
+
+.dice.display-6 {
+  transform: translateZ(-35px) rotateX(90deg);
+}
+
+.face {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  /* border: 4px solid white; */
+  line-height: 70px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background: black;
+}
+
+.face-1 {
+  transform: rotateY(0deg) translateZ(35px);
+}
+
+.face-3 {
+  transform: rotateY(180deg) translateZ(35px);
+}
+
+.face-2 {
+  transform: rotateY(90deg) translateZ(35px);
+}
+
+.face-4 {
+  transform: rotateY(-90deg) translateZ(35px);
+}
+
+.face-5 {
+  transform: rotateX(90deg) translateZ(35px);
+}
+
+.face-6 {
+  transform: rotateX(-90deg) translateZ(35px);
+}
+
+/***** End Section *****/
 
 .hover\:cursor-pointer:hover{
   cursor: pointer;
