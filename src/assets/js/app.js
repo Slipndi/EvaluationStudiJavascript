@@ -28,6 +28,7 @@ const player2Turn = document.querySelector('#player2Turn');
 
 const modal = document.querySelector('#popup-modal');
 
+// On défini le tour du joueur 1 à false avant le début de la partie.
 let playerOnePlay = false;
 
 //Initialisation des Scores
@@ -37,11 +38,11 @@ let currentClass = '';
 let namePlayer1 = document.getElementById('playerOneName').value;
 let namePlayer2 = document.getElementById('playerTwoName').value;
 
+// On initie tous les scores à 0
 let player1RoundScore = ScoreInitial;
 let player2RoundScore = ScoreInitial;
 let player1GlobalScore = ScoreInitial;
 let player2GlobalScore = ScoreInitial;
-
 
 const initGame = () => {
     // on ferme la fenêtre modal pour lancer la partie
@@ -67,6 +68,7 @@ const initGame = () => {
     changeTurn();
 }
 
+// Fonction permettant de gérer la logique du bouton HOLD
 const holdPoint = () => {
     if (playerOnePlay) {
         player1GlobalScore += player1RoundScore;
@@ -113,6 +115,7 @@ const rollDice = () => {
         return changeTurn();
     }
 
+    // Gestion de la répartition du score en fonction du joueur actif.
     if (playerOnePlay) {
         player1RoundScore += randNum;
         Player1RoundScorePlaceHolder.innerHTML = player1RoundScore;
