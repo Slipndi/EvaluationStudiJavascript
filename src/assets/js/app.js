@@ -16,6 +16,7 @@ const Player1GlobalScorePlaceHolder = document.querySelector('#Player1Global');
 const Player2GlobalScorePlaceHolder = document.querySelector('#Player2Global');
 const Player1RoundScorePlaceHolder = document.querySelector('#Player1Round');
 const Player2RoundScorePlaceHolder = document.querySelector('#Player2Round');
+const ModalInformation = document.querySelector("#informations");
 
 // Position des pseudos
 const Player1NamePlaceHolder = document.querySelector('#player1Name');
@@ -45,15 +46,14 @@ let player2GlobalScore = ScoreInitial;
 const initGame = () => {
     // on ferme la fenêtre modal pour lancer la partie
     closeModal();
-
+    //on active les boutons 
+    activationOfButtons();
     // Récupération des pseudos en éliminant les espaces blancs avant et après la chaîne de texte
     namePlayer1 = document.getElementById('playerOneName').value.trim();
     namePlayer2 = document.getElementById('playerTwoName').value.trim();
-
     // Si la chaîne reçue est vide ou null, on met un nom par défaut, sinon nous nettoyons les potentielles attaques de script
     Player1NamePlaceHolder.innerHTML = namePlayer1 == null || namePlayer1 == '' ? "Player 1" : protectAboutScript(namePlayer1);
     Player2NamePlaceHolder.innerHTML = namePlayer2 == null || namePlayer2 == '' ? "Player 2" : protectAboutScript(namePlayer2);
-
     // Mise à 0 des scores 
     Player1GlobalScorePlaceHolder.innerHTML = ScoreInitial;
     Player2GlobalScorePlaceHolder.innerHTML = ScoreInitial;
@@ -63,12 +63,9 @@ const initGame = () => {
     player2RoundScore = ScoreInitial;
     player1GlobalScore = ScoreInitial;
     player2GlobalScore = ScoreInitial;
-   
     // on lance le tour au joueur1
     changeTurn();
-
 }
-
 
 const holdPoint = () => {
     if (playerOnePlay) {
@@ -80,6 +77,7 @@ const holdPoint = () => {
         Player2GlobalScorePlaceHolder.innerHTML = player2GlobalScore;
 
     }
+    isGameWin();
     changeTurn();
 }
 
@@ -87,9 +85,8 @@ const holdPoint = () => {
 //Je protège mon input contre l'insertion de code
 const protectAboutScript = (value) => value.replace(/[<>]/gm, '');
 
-
 // Fonction qui contrôle la nouvelle partie
-const openModal = () => modal.classList.remove('hidden');
+const openModal = () => {modal.classList.remove('hidden');
 const closeModal = () => modal.classList.add('hidden');
 
 // Gestion de la partie du dé
@@ -111,8 +108,9 @@ const rollDice = () => {
     dice.classList.add(showClass);
     // on stocke la valeur actuelle.
     currentClass = showClass;
+    // Early return si le numéro est 1 
     if (randNum === 1) {
-        changeTurn();
+        return changeTurn();
     }
 
     if (playerOnePlay) {
@@ -125,11 +123,12 @@ const rollDice = () => {
 
 }
 
+// Gestion du changement de Tour et réinitialisation des scores de rounds
 const changeTurn = () => {
     player1RoundScore = ScoreInitial;
+    player2RoundScore = ScoreInitial;
     Player1RoundScorePlaceHolder.innerHTML = ScoreInitial;
     Player2RoundScorePlaceHolder.innerHTML = ScoreInitial;
-    player2RoundScore = ScoreInitial;
     playerOnePlay = !playerOnePlay;
 
     if (playerOnePlay) {
@@ -141,14 +140,33 @@ const changeTurn = () => {
     }
 }
 
+// Logique permettant de terminer la partie
+const isGameWin = () => {
+    if (player1GlobalScore >= 100) {
+        alert(`Bravo ${Player1NamePlaceHolder.innerHTML }, tu as gagné la partie avec ${player1GlobalScore} points !`);
+        activationOfButtons();
+    }
+    if (player2GlobalScore >= 100) {
+        alert(`Bravo ${Player2NamePlaceHolder.innerHTML }, tu as gagné la partie avec ${player2GlobalScore} points !`);
+        activationOfButtons();
+    }
+    }
+    
+// Permet le blocage / déblocage des boutons HOLD/ROLL DICE pour qu'ils soient actif uniquement lors de la partie
+const activationOfButtons = () => {
+    holdButton.disabled = !holdButton.disabled    
+    rollDiceButton.disabled = !rollDiceButton.disabled;
+}
+
+    
 // Appelle de la fonction pour initialiser le dé
 rollDice();
 
-
 //Gestion des actions sur les différents buttons du DOM
-rollDiceButton.addEventListener("click", rollDice);
 startNewGameButton.addEventListener("click", openModal);
 closeModalButton.addEventListener('click', closeModal);
-holdButton.addEventListener('click', holdPoint);
+startGameButton.addEventListener('click', initGame); 
 
-startGameButton.addEventListener('click', initGame)
+holdButton.addEventListener('click', holdPoint);
+rollDiceButton.addEventListener("click", rollDice);
+

@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dice Master</title>
-
     <!-- Insertion du CSS -->
     <link rel="stylesheet" href="./src/assets/css/reset.css" />
     <link rel="stylesheet" href="./src/assets/css/final.css" />
   </head>
   <body class="container mx-auto px-4 h-screen font-medium">
+    <!-- Header contenant uniquement le bouton new game -->
     <header class="h-1/6 flex flex-row justify-center items-center">
       <button
         type="button"
@@ -34,7 +34,9 @@
         <h2 class="text-base ml-2">NEW GAME</h2>
       </button>
     </header>
+    <!-- Partie principale du jeu -->
     <main class="flex w-100 flex-col h-4/6 text-2xl">
+      <!-- Ligne reprenant les pseudos des joueurs-->
       <div class="h-1/5 flex w-100 flex-row justify-between">
         <div class="flex w-5/12 flex-row justify-center items-center" >
           <span id="player1Name">PLAYER 1</span>
@@ -45,6 +47,7 @@
           <span id="player2Name">PLAYER 2</span>
         </div>
       </div>
+      <!-- Ligne des scores globaux et du dé-->
       <div class="h-2/5 flex flex-row text-3xl justify-center items-center">
         <div class="flex w-5/12 justify-center align-middle text-secondary-200 text-5xl" id="Player1Global">43</div>
         <div class="flex w-2/12 align-middle items-center justify-center perspective">
@@ -88,17 +91,18 @@
         </div>
         <div class="flex w-5/12 justify-center align-middle text-primary-400 text-5xl" id="Player2Global">72</div>
       </div>
+      <!-- Dernière ligne reprenant les scores du round et les boutons -->
       <div class="h-2/5 flex flex-row text-base justify-center items-center">
         <div class="flex w-5/12 align-middle items-center justify-center">
           <div
             class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-l text-white font-bold justify-around"
           >
-            <h4 class="text-xs font-light text-black">ACTUEL</h4>
+            <h4 class="text-xs font-light text-black">CURRENT</h4>
             <span id="Player1Round">11</span>
           </div>
         </div>
         <div class="flex w-2/12 align-middle items-center justify-center text-xs flex-col">
-          <button class="flex w-100 mb-3 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="RollDice">
+          <button class="flex w-100 mb-3 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="RollDice" disabled>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5 stroke-primary-600"
@@ -115,7 +119,7 @@
             </svg>
             ROLL
           </button>
-          <button class="flex w-100 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="holdScore">
+          <button class="flex w-100 hover:cursor-pointer hover:text-primary-600 hover:font-normal" id="holdScore" disabled>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5 stroke-primary-600"
@@ -137,15 +141,15 @@
           <div
             class="w-20 h-16 bg-primary-600 rounded-lg flex flex-col items-center text-lg text-white font-bold justify-around"
           >
-            <h4 class="text-xs font-light text-black">ACTUEL</h4>
+            <h4 class="text-xs font-light text-black">CURRENT</h4>
             <span id="Player2Round">0</span>
           </div>
         </div>
       </div>
     </main>
+    <!-- simple footer -->
     <footer class="h-1/6 flex text-xs justify-center items-end">Made with love by Ludovic JORGE DO MARCO</footer>
-    <!-- Gestion de la modal -->
-
+    <!-- Début de la modal -->
     <div
       class="hidden fixed z-10 inset-0 overflow-y-auto"
       aria-labelledby="modal-title"
@@ -164,15 +168,15 @@
           <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 bg-primary-300">
             <div class="sm:flex sm:items-start">
               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Bienvenue sur Dice-Master</h3>
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Welcome in Dice-Master</h3>
                 <div class="mt-2 flex flex-col">
-                  <p class="text-xs"> 2 joueurs s'affrontent, le premier à 100 points a gagné la partie. 
-                      Le joueur a la main tant qu'il n'appuie pas sur le bouton HOLD. 
-                      Mais attention, tomber sur <span class='text-red-600'>le chiffre 1</span> et tout vos points du round sont perdus.
+                  <p class="text-xs text-justify">2 players clash, the first one to 100 points win the game. 
+                      Player who play, can roll the dice, many time has he want and can press HOLD to get points. 
+                      but if you get <span class='text-red-600'> 1</span> you lose current points.
                   </p>
-                  <label for="playerOneName">Joueur 1</label>
+                  <label for="playerOneName">Player 1</label>
                   <input class="shadow appearance-none border rounded w-full px-3 text-primary-700 leading-tight focus:outline-none focus:shadow-outline" type='text' name="playerOneName" id="playerOneName" />
-                  <label for="playerTwoName">Joueur 2</label>
+                  <label for="playerTwoName">Player 2</label>
                   <input class="shadow appearance-none border rounded w-full px-3 text-primary-700 leading-tight focus:outline-none focus:shadow-outline" Type='text' name="playerTwoName" id="playerTwoName" />
                 </div>
               </div>
@@ -183,7 +187,7 @@
             type="submit"
               type="button"
               class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium bg-primary-400 text-black hover:bg-primary-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm hover:cursor-pointer"
-            value='Lancer la partie'
+            value='Start Game'
             id="startGame"
               >
             <button
