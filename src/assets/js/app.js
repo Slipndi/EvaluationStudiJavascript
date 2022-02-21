@@ -88,7 +88,7 @@ const holdPoint = () => {
 const protectAboutScript = (value) => value.replace(/[<>]/gm, '');
 
 // Fonction qui contrôle la nouvelle partie
-const openModal = () => {modal.classList.remove('hidden');
+const openModal = () => modal.classList.remove('hidden');
 const closeModal = () => modal.classList.add('hidden');
 
 // Gestion de la partie du dé
@@ -153,7 +153,7 @@ const isGameWin = () => {
         alert(`Bravo ${Player2NamePlaceHolder.innerHTML }, tu as gagné la partie avec ${player2GlobalScore} points !`);
         activationOfButtons();
     }
-    }
+}
     
 // Permet le blocage / déblocage des boutons HOLD/ROLL DICE pour qu'ils soient actif uniquement lors de la partie
 const activationOfButtons = () => {
