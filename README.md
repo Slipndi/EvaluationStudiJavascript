@@ -14,3 +14,5 @@ https://dice-master.netlify.app
 L'évaluation a été réalisé à l'aide de TAILWINDCSS.
 Le javascript et le HTML sont en vanilla.
 
+## Durée de l'évaluation
+J'ai effectué cette évaluation en 9H00.
