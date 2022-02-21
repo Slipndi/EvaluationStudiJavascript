@@ -146,11 +146,11 @@ const changeTurn = () => {
 // Logique permettant de terminer la partie
 const isGameWin = () => {
     if (player1GlobalScore >= 100) {
-        alert(`Bravo ${Player1NamePlaceHolder.innerHTML }, tu as gagné la partie avec ${player1GlobalScore} points !`);
+        alert(`Youpee ${Player1NamePlaceHolder.innerHTML }, you win this game with ${player1GlobalScore} points !`);
         activationOfButtons();
     }
     if (player2GlobalScore >= 100) {
-        alert(`Bravo ${Player2NamePlaceHolder.innerHTML }, tu as gagné la partie avec ${player2GlobalScore} points !`);
+        alert(`Youpee ${Player2NamePlaceHolder.innerHTML }, you win this game with ${player2GlobalScore} points !`);
         activationOfButtons();
     }
 }
